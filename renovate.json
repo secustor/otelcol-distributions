@@ -19,23 +19,13 @@
   ],
   "customManagers": [
     {
-      "description": "version field should follow upstream",
+      "description": "version field and OTELCOL_BUILDER_VERSION should follow upstream",
       "fileMatch": [
-        "^distributions\\/.*manifest\\.ya?ml$"
-      ],
-      "matchStrings": [
-        "\\sversion:\\s+(?<currentValue>\\S+)"
-      ],
-      "depNameTemplate": "open-telemetry/opentelemetry-collector",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^v(?<version>.*)$"
-    },
-    {
-      "description": "update ocb version in Makefile",
-      "fileMatch": [
+        "^distributions\\/.*manifest\\.ya?ml$",
         "^Makefile$"
       ],
       "matchStrings": [
+        "\\sversion:\\s+(?<currentValue>\\S+)",
         "OTELCOL_BUILDER_VERSION\\s*\\?=\\s*(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "open-telemetry/opentelemetry-collector",
