@@ -2,5 +2,43 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "ocb": {
+    "fileMatch": [
+      "^distributions\\/.*manifest\\.ya?ml$"
+    ]
+  },
+  "packageRules": [
+    {
+      "matchSourceUrls": [
+        "https://github.com/open-telemetry/opentelemetry-collector",
+        "https://github.com/open-telemetry/opentelemetry-collector-contrib"
+      ],
+      "groupName": "otel-collector upstream dependencies"
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "version field should follow upstream",
+      "fileMatch": [
+        "^distributions\\/.*manifest\\.ya?ml$"
+      ],
+      "matchStrings": [
+        "\\sversion:\\s+(?<currentValue>\\S+)"
+      ],
+      "packageNameTemplate": "open-telemetry/opentelemetry-collector",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "description": "update ocb version in Makefile",
+      "fileMatch": [
+        "^Makefile$"
+      ],
+      "matchStrings": [
+        "OTELCOL_BUILDER_VERSION\\s*\\?=\\s*(?<currentValue>\\S+)"
+      ],
+      "packageNameTemplate": "open-telemetry/opentelemetry-collector",
+      "datasourceTemplate": "github-releases"
+    }
   ]
 }
