@@ -27,7 +27,8 @@
         "\\sversion:\\s+(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "open-telemetry/opentelemetry-collector",
-      "datasourceTemplate": "github-releases"
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     },
     {
       "description": "update ocb version in Makefile",
@@ -38,7 +39,8 @@
         "OTELCOL_BUILDER_VERSION\\s*\\?=\\s*(?<currentValue>\\S+)"
       ],
       "depNameTemplate": "open-telemetry/opentelemetry-collector",
-      "datasourceTemplate": "github-releases"
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ]
 }
