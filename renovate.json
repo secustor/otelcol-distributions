@@ -26,7 +26,7 @@
       "matchStrings": [
         "\\sversion:\\s+(?<currentValue>\\S+)"
       ],
-      "packageNameTemplate": "open-telemetry/opentelemetry-collector",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector",
       "datasourceTemplate": "github-releases"
     },
     {
@@ -37,7 +37,7 @@
       "matchStrings": [
         "OTELCOL_BUILDER_VERSION\\s*\\?=\\s*(?<currentValue>\\S+)"
       ],
-      "packageNameTemplate": "open-telemetry/opentelemetry-collector",
+      "depNameTemplate": "open-telemetry/opentelemetry-collector",
       "datasourceTemplate": "github-releases"
     }
   ]
